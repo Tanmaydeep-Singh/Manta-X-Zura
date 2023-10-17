@@ -12,7 +12,8 @@
     "framer-motion": "^10.16.4",
     "next": "13.5.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sweetalert2": "^11.7.32"
   },
   "devDependencies": {
     "@types/node": "^20",
