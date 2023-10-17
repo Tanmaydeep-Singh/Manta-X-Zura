@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import QuizBoard from './QuizBoard'
-import { motion } from 'framer-motion';
 
 function Quiz() {
     const [quizState, setQuizState] = useState(false);
@@ -15,16 +14,13 @@ function Quiz() {
           <QuizBoard />
         ) : (
           <div>
-            <h1>QUIZ</h1>
-            <motion.button
+            <button
               type='button'
-              className='btn btn-primary'
+              className='btn btn-primary m-2'
               onClick={startQuiz}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
             >
               Start Quiz
-            </motion.button>
+            </button>
           </div>
         )}
       </div>
