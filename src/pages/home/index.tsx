@@ -2,36 +2,43 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import Quiz from '@/components/Quiz'
 import router from 'next/router'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Swal from 'sweetalert2'
 
-function index() {
+function Index() {
 
-    const Lottery = () => {
-        Swal.fire({
+    useEffect(() => {
+        const popUpShown = localStorage.getItem('popUpShown');
+        const shouldShowPopup = popUpShown === "false" ? true : false;
+    
+        const showPopup = () => {
+          Swal.fire({
             title: 'Do You Want To Take Part In Grand Lottery?',
             showCancelButton: true,
-            // Configuration for the "Yes" button
             confirmButtonText: 'Yes',
             confirmButtonColor: '#7066e0',
-            // Configuration for the "Maybe Later" button
             cancelButtonText: 'Maybe Later',
             cancelButtonColor: '#7066e0',
-        }).then((result) => {
+          }).then((result) => {
             if (result.isConfirmed) {
-                router.push('/lottery');
-            } else if (result.dismiss === Swal.DismissReason.cancel) {
-
+              router.push('/lottery');
             }
-        });
-    }
+          });
+        };
+        console.log("popUpShown", popUpShown)
+        console.log("shouldShowPopup", shouldShowPopup)
+        if (shouldShowPopup) {
+            console.log("call")
+          setTimeout(showPopup, 1000);
+          localStorage.setItem('popUpShown', 'true');
+        }
+    
+    }, []);
 
     return (
         <div>
             <Navbar /> {/* Include your navbar */}
             <div className=' flex items-center justify-center flex-col gap-8 m-10'>
-                index
-                <button className="btn btn-primary" onClick={() => { Lottery() }}>Connect</button>
                 <Quiz />
             </div>
             <Footer /> {/* Include your footer */}
@@ -41,4 +48,4 @@ function index() {
     )
 }
 
-export default index
+export default Index

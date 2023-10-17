@@ -36,14 +36,12 @@ export const MenuItem = (props: { title: string; link: string; }) => {
         title !== '' ?
           <>
             <Link href={link} >
-              <div className=" w-10 h-10 rounded-full flex-shrink-0 mr-7" style={style} />
-              <div className="rounded-md w-48 h-5 flex-1 text-[#D309E1] " >{title}</div>
+              <div className="rounded-md w-48 h-5 flex-1 text-[#D309E1] text-3xl uppercase " >{title}</div>
             </Link>
           </>
           :
           <>
            <Link href={link} >
-      <div className=" w-10 h-10 rounded-full flex-shrink-0 mr-7" style={style} />
       <div className="rounded-md w-48 h-5 flex-1 text-[#D309E1] " style={style} ></div>
       </Link></>
       }
