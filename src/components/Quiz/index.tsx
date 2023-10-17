@@ -1,8 +1,11 @@
 import React from 'react'
+import QuizBoard from './QuizBoard'
 
 function Quiz() {
   return (
-    <div>QUIZ</div>
+    <div>QUIZ
+        <QuizBoard />
+    </div>
   )
 }
 
